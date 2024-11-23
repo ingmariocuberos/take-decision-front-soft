@@ -1,0 +1,13 @@
+.back-color {
+  background-color: antiquewhite;
+  font-weight: bold;
+}
+
+.tab{
+  cursor: pointer;
+}
+
+.container-button{
+  display: flex;
+  justify-content: center;
+}

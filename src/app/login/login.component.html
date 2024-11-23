@@ -1,0 +1,34 @@
+<h1>Toma un buena decisión</h1>
+<div class="nav-content">
+  <ul class="tabs ta">
+    <li class="tab">
+      <a
+        [ngClass]="isLoginPage ? 'back-color' : 'inactive'"
+        (click)="onTabClick(true)"
+        >Login</a
+      >
+    </li>
+    <li class="tab">
+      <a
+        [ngClass]="!isLoginPage ? 'back-color' : 'inactive'"
+        (click)="onTabClick(false)"
+        >Register</a
+      >
+    </li>
+  </ul>
+</div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+  <div>
+    <label for="username"> Nombre de usuario </label>
+    <input id="username" type="text" formControlName="username" />
+  </div>
+  <div>
+    <label for="password"> Contraseña </label>
+    <input id="password" type="password" formControlName="password" />
+  </div>
+  <div class="container-button">
+    <button class="button waves-effect waves-light btn" type="submit">
+      {{ isLoginPage ? "Ingresar" : "Registrarse" }}
+    </button>
+  </div>
+</form>

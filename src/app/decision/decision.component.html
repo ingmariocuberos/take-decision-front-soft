@@ -1,0 +1,25 @@
+<div class="container-decision">
+  <a class="dropdown-trigger btn" data-target="dropdown1"
+    >Opciones de decisión <i class="material-icons">arrow_drop_down</i></a
+  >
+
+  <ul id="dropdown1" class="dropdown-content">
+    <li *ngFor="let decisionType of decisionTypes">
+      <a (click)="selectDecision(decisionType)">{{ decisionType.name }}</a>
+    </li>
+  </ul>
+
+  <div class="row">
+    <div class="col s12 m5">
+      <div class="card-panel teal">
+        <span class="white-text">
+          Tipo de decisión seleccionada: <br> {{ selectedDecision.name }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <button class="button waves-effect waves-light btn" [ngClass]="{ 'disabled': !selectedDecision.name}" type="submit">
+    Siguiente
+  </button>
+</div>
