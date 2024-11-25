@@ -1,0 +1,19 @@
+#decision-context {
+  height: 60dvh;
+  width: 70dvw;
+}
+
+.container-context{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin: 10px 0;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,7 +1,14 @@
 .container-decision{
   display: flex;
-  height: 100dvh;
+  height: 90dvh;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.container-header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 10dvh;
 }

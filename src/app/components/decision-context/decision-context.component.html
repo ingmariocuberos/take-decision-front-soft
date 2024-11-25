@@ -1,0 +1,21 @@
+<form [formGroup]="decisionOptionsForm">
+  <div class="progress" *ngIf="loading">
+    <div class="indeterminate"></div>
+  </div>
+  <div class="container-context">
+    <label for="decision-context"> Contexto </label>
+    <textarea id="decision-context" type="text" formControlName="decisionContext"></textarea>
+  </div>
+  <div class="container-buttons">
+    <div class="container-button">
+      <button class="button waves-effect waves-light btn" (click)="onChangeStep(1)">
+        Atrás
+      </button>
+    </div>
+    <div class="container-button">
+      <button class="button waves-effect waves-light btn" [ngClass]="{'disabled': !decisionOptionsForm.valid || loading }" (click)="onChangeStep(3)">
+        Evaluar
+      </button>
+    </div>
+  </div>
+</form>

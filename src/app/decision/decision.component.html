@@ -1,4 +1,12 @@
-<div class="container-decision">
+<div class="container-header">
+  <div class="container-button">
+    <button class="button waves-effect waves-light btn" (click)="onLogOut()">
+      LogOut
+    </button>
+  </div>
+</div>
+
+<div *ngIf="processStep === 0" class="container-decision">
   <a class="dropdown-trigger btn" data-target="dropdown1"
     >Opciones de decisión <i class="material-icons">arrow_drop_down</i></a
   >
@@ -13,13 +21,39 @@
     <div class="col s12 m5">
       <div class="card-panel teal">
         <span class="white-text">
-          Tipo de decisión seleccionada: <br> {{ selectedDecision.name }}
+          Tipo de decisión seleccionada: <br />
+          {{ formDecisionData.decisionType }}
         </span>
       </div>
     </div>
   </div>
 
-  <button class="button waves-effect waves-light btn" [ngClass]="{ 'disabled': !selectedDecision.name}" type="submit">
+  <button
+    class="button waves-effect waves-light btn"
+    (click)="onNextClick(1)"
+    [ngClass]="{ disabled: !formDecisionData.decisionType }"
+  >
     Siguiente
   </button>
 </div>
+
+<div *ngIf="processStep === 1" class="container-decision">
+  <app-decision-options [(processStep)]="processStep" [(formDecisionData)]="formDecisionData"></app-decision-options>
+</div>
+
+<div *ngIf="processStep === 2" class="container-decision">
+  <app-decision-context [(processStep)]="processStep" [(formDecisionData)]="formDecisionData"></app-decision-context>
+</div>
+
+<div class="container-decision" *ngIf="processStep === 3">
+  <label for="decision-context"> Evaluación </label>
+  <p> {{ formDecisionData.evaluation }} </p>
+  
+  <div class="container-button">
+    <button class="button waves-effect waves-light btn" (click)="onNextClick(0)">
+      Atrás
+    </button>
+  </div>
+</div>
+
+
